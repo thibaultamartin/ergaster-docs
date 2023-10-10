@@ -1,7 +1,14 @@
 ---
 title: Provisioning
-description: Because software doesn't run on thin air
-order: 2
+description: Provisioning the servers you need
+sidebar:
+    order: 10
 ---
 
-We need those computers to go voom
+- Can be a VPS, an EC2 instance on AWS, a baremetal server.
+- Needs to run a recent Linux
+- At least one S3-compatible bucket, from a provider that support [Object Locks](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) (so your backups can't get deleted if your server gets infected)
+
+:::tip
+Thib is running his infrastructure on VPS from [netcup.eu](https://netcup.eu) and storing backups on a bucket from [Scaleway](https://scaleway.com)
+:::
