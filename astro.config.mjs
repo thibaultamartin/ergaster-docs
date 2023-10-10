@@ -27,6 +27,7 @@ export default defineConfig({
 			editLink: {
 				baseUrl: "https://github.com/thibaultamartin/ergaster-docs/edit/main/",
 			},
+			lastUpdated: true,
 			sidebar: [
 				{
 					label: 'Overview',
