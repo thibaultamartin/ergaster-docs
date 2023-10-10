@@ -24,6 +24,9 @@ export default defineConfig({
 				github: 'https://github.com/thibaultamartin',
 				mastodon: 'https://mamot.fr/@thibaultamartin',
 			},
+			editLink: {
+				baseUrl: "https://github.com/thibaultamartin/ergaster-docs/edit/main/",
+			},
 			sidebar: [
 				{
 					label: 'Overview',
