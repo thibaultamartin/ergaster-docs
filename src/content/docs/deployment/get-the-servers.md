@@ -1,5 +1,5 @@
 ---
-title: Provisioning
+title: Get the servers
 description: Provisioning the servers you need
 sidebar:
     order: 10
