@@ -18,7 +18,7 @@ Ansible has some jargon that can be unsettling. Head out to [/learning/ansible](
 Install [git](https://git-scm.com/) on your laptop/workstation, and clone {{ TODO set up public repo }} using the following command
 
 ```shell
-git clone {{ TODO set up public repo }}
+$ git clone {{ TODO set up public repo }}
 ```
 
 ## Install ansible
@@ -31,7 +31,7 @@ Ansible is able to do a lot of things on its own, but it relies on collections (
 Make sure you're in the project's directory, and [install the collections from the requirements file](https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#install-multiple-collections-with-a-requirements-file) with the following command
 
 ```sh
-ansible-galaxy install -r requirements.yml
+$ ansible-galaxy install -r requirements.yml
 ```
 
 ## Install an IDE
