@@ -1,53 +1,18 @@
-# Starlight Starter Kit: Basics
+## What is this project?
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+This is the documentation of Thib’s personal infrastructure. Disaster Recovery Plans include documentation about a setup that is as foolproof as possible. Since maintaining documentation is expensive, doing it collaboratively allows us to dillute the costs within the community.
 
-```
-npm create astro@latest -- --template starlight
-```
+You are welcome to try this documentation and deploy your setup with it. Bear in mind this documentation doesn't come with any warranty of any kind, and that the issue tracker is not meant for customer support. You're on your own, but it's a fun adventure!
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
+## What not to expect from this project?
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This documentation is very opinionated. Even if the "Learning the concepts" section should be generic enough to empower people to roll out their own set-ups, this documentation is not meant to be generic. It is not meant to document how to deploy all the cool services out there, but aims to remain minimal.
 
-## 🚀 Project Structure
+It will remain RHEL-derivatives centric, with a minimal set of services deployed. Make sure you [read the FAQ](https://docs.ergaster.org/overview/faq/) before contributing.
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Building the docs
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
-
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+1. Clone this repository
+1. `cd` into the repository
+1. Install the dependencies with `yarn`
+1. Run the project with `yarn run dev`. Your clone should be available at http://localhost:4321
