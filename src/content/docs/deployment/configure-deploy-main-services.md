@@ -59,6 +59,30 @@ If you're not sure what Let's Encrypt, Certificates, or Certificate Authory are,
 
 Finally `base_domain` is the base domain your services will use. This playbook assumes all your services will run on subdomains created from this domain (e.g. `matrix.example.com`, `cloud.example.com`, `hdoc.example.com`).
 
+### Encrypting variables with ansible-vault
+
+Storing secrets like database passwords in plaintext is not great. Fortunately, we can use ansible's `ansible-vault` utility to encrypt variables. They will then be stored encrypted in our host vars, and will be decrypted by ansible when it needs it, using our vault password.
+
+The ansible documentation can be overwhelming, so let's keep things simple here: we are going to use a single password to encrypt everything, since we're a team of one admin managing all those services. For the sake of simplicity and sturdiness we will not make ansible look up in a password manager, but we will make it prompt us for our password when reading a playbook.
+
+To encrypt a variable, enter `ansble-vault encrypt_string <yourstring>`. It will prompt you for a password to encrypt/decrypt the string, and will output the encrypted content.
+
+For example with the string "test" and the password "mypassword"
+
+```
+$ ansible-vault encrypt_string "test"
+New Vault password: 
+Confirm New Vault password: 
+Encryption successful
+!vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          33366333626335623936623137386430366630666262663963396631633338346437323163343730
+          6330613330633138626137353938383565613130653036660a346666306137616461396239363935
+          66316133363637343665663138393937366632636263393566323464333433386435376439396464
+          3032376165323938660a363033353737653939366263663533633638313765633963656462313365
+          3537
+```
+
 ### Matrix variables
 
 TODO
@@ -87,6 +111,6 @@ To be able to run, ansible needs to:
 
 The final command to run is:
 
-```
-ansible-playbook services.yml -i inventory/production.ini -K --ask-vault-password
+```sh
+$ ansible-playbook services.yml -i inventory/production.ini -K --ask-vault-password
 ```
