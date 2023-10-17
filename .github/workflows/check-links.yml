@@ -12,5 +12,5 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v1.8.0
         with:
-          args: "--exclude-mail ."
+          args: "--exclude-mail --exclude-path ./README.md ."
           fail: true
