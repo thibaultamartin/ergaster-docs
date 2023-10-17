@@ -27,13 +27,25 @@ Ansible will know that it needs to run the `services.yml` playbook on `services.
 
 ## SSH into your server
 
-TODO ssh-copy-id
+To make deployment much easier and secure, copy your laptop/workstation's public key on your remote host using this command on your local machine:
+
+```
+$ ssh-copy-id yourRemoteUser@example.com
+```
+
+You will be prompted for your remote user password. Once the key is copied, you should be able to log in seamlessly! Note that if your private key is encrypted, you will be prompted for the password to decrypt it.
 
 ## Host variables
 
 The ansible playbook relies on host variables to configure the various services. This goes from specifying your domain name to more sensitive information such as database passwords. The latter can be encrypted at rest to be decrypted when playing the playbook.
 
 To start creating host vars for your services server, create the `inventory/host_vars/services.example.com` directory and open a `vars.yml` inside it.
+
+:::tip
+The variables only need to be populated the first time you deploy your services, or when you want to change their content.
+
+When recovering from a disaster, you should be able to use the variables stored in your private repository.
+:::
 
 ### General purpose variables
 
@@ -85,7 +97,67 @@ Encryption successful
 
 ### Matrix variables
 
-TODO
+On either your laptop/workstation or remote server, assuming `podman` is installed, you need to generate Synapse's configuration files. A reminder that this only needs to be done once.
+
+The following command will make Synapse generate a configuration file and signing key in the current directory. Both `SYNAPSE_SERVER_NAME` and `SYNAPSE_REPORT_STATS` don't really matter since they will be updated later.
+
+```
+$ podman run -it --rm \
+  --mount type=bind,src=$(pwd),dst=/data \
+  -e SYNAPSE_SERVER_NAME=example.org \
+  -e SYNAPSE_REPORT_STATS=yes \
+  matrixdotorg/synapse:v1.94.0 \
+  generate
+```
+
+This will generate three files:
+
+- `homeserver.yaml` which contains most of the variables we need to set as host variables
+- `example.com.signing.key` which contains the signing key we will set as a host variable
+- `example.com.log.config` which we can discard right away
+
+In `homeserver.yaml` lookup for the following variables, [encrypt them using `ansible-vault`](#encrypting-variables-with-ansible-vault), and copy the key-value pair in your host vars file:
+
+- `registration_shared_secret`
+- `macaroon_secret_key`
+- `form_secret`
+
+Copy the full content of the `example.com.signing.key` file, [encrypt it using `ansible-vault`](#encrypting-variables-with-ansible-vault), and add it to your host vars file under the `synapse_signing_key` key.
+
+You can then run `openssl rand -base64 27` several times to generate secrets for the following variables:
+
+- `synapse_pg_password`
+- `ssync_secret`
+- `ssync_pg_password`
+
+Don't forget to [encrypt them using `ansible-vault`](#encrypting-variables-with-ansible-vault), and your `inventory/host_vars/example.com/vars.yml` should look like follows:
+
+```
+matrix_server_name: example.com
+synapse_pg_username: synapse
+synapse_pg_password: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted>
+synapse_registration_shared_secret: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+synapse_macaroon_secret_key: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+synapse_form_secret: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+synapse_signing_key: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+ssync_domain: sliding.matrix.{{base_domain}}
+ssync_secret: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+ssync_pg_password: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+```
 
 ### Nextcloud variables
 

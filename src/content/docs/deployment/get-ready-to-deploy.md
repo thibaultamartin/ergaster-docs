@@ -41,3 +41,13 @@ Ansible playbooks are nothing but yaml (or ini) files that can be edited by even
 :::tip
 Thib is using VSCode to edit his playbooks. It supports the [Ansible plugin](https://marketplace.visualstudio.com/items?itemName=redhat.ansible), which comes with a linter and useful error messages.
 :::
+
+## Install openssl
+
+`openssl` can be useful to generate secrets, but other utilities like `pwgen` can do the work as well.
+
+A typical command to generate a 27 characters long password with openssl would be:
+
+```
+$ openssl rand -base64 27
+```
