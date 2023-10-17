@@ -30,17 +30,17 @@ A key can also be seen as a function.
 - Take some text, use the public key to encrypt it, and only the private key will ever be able to decrypt the result. The public key can't be used to reverse the encryption it has performed.
 - Take some text, use your private key to encrypt it, and only your public key will ever be able to decrypt the result: this proves you are the author of the encrypted text. Since in practice everyone can decrypt the text you didn't really encrypt it: you signed it.
 
-Another way to see it is that your public key is what allows you to identify, i.e. say who you are. Your private key is what allows you to authenticate, i.e. prove who you are.
+Another way to see it is that your public key is what allows you to identify, i.e. say who you are. Your private key is what allows you to authenticate, i.e. prove who you are, without ever disclosing the private key itself.
 
-Asymmetric encryption can be quite expensive (i.e. slow). This is why it is often used only as a first step between peers, to safely share a much less resource intensive symmetric key they will use during the rest of the exchange.
+Asymmetric encryption can be quite expensive (i.e. slow) and has limitations on the size of messages it can encrypt. This is why it is often used only as a first step between peers, to safely share a much less resource intensive symmetric key they will use during the rest of the exchange.
 
-You don't need to know much more about asymmetric cryptography theory to understand the stakes at play during a SSH fingerprint check.
+You don't need to know much more about asymmetric cryptography theory to understand the stakes at play during a SSH fingerprint check. All of the above will also help you understading how to go beyond passwords for authentication!
 
 ## What happens when you log in with SSH
 
 When your ssh client tries to connect to your ssh server (i.e. when you type `ssh example.com` in your terminal), the server will present a public key to your client. Your client is going to lookup in its `~/.ssh/known_hosts` file to see if there is a match. If it's the first time it's seeing this host, you're going to get the same prompt as in this page's introduction.
 
-If your client trusts the key, it will use the server's public key to encrypt a secret for it so they can have a secure channel to generate a symmetric key for the rest of the exchange. If you're interested in learning more about SSH and the client-server dance, you read read [this Hostinger post](https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work).
+If your client trusts the server identified by the public key, they will negotiate temporary session keys to protect the rest of the communication. If you're interested in learning more about SSH and the client-server dance, you read read [this Hostinger post](https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work).
 
 ## How to check if the fingerprint is valid
 
@@ -55,7 +55,7 @@ Then, to make sure the correct keys/fingerprints have been sent to you, you need
 Connecting to your host using a KVM provided by your service provider can be considered a trusted channel. Using this KVM, log in to your host and use `ssh-keygen` again to display the fingerprint of the key. In the following example, the `ed25519` key is used, but make sure you use the key your ssh client will rely on.
 
 ```
-$ sudo ssh-keygen -l -f /etc/ssh/ssh_host_ed25519_key.pub
+# for key in /etc/ssh/ssh_host_*.pub; do ssh-keygen -lf $key; done
 ```
 
 If the fingerprint match, you're good to go.
@@ -66,7 +66,7 @@ One important question we haven't answered so far is: what are we really protect
 
 Your main risk is to connecto to a server impersonating your server: a man in the middle attack. If that server managed to spoof yours and you trusted it, you'd end up copying your commands, files, on a remote host that is not yours, giving away your passwords and secrets for free… which is clearly bad.
 
-It's worth noting that spoofing a server is not a trivial attack. As a self-hoster who just set up their server and who attempt to SSH into it, it's very unlikely that someone will manage to spoof your server.
+It's worth noting that spoofing a server is not a trivial attack. As a self-hoster who just set up their server and who attempt to SSH into it, it's very unlikely that someone will manage to spoof your server right away.
 
 :::tip
 Unless you are the target of an intelligence agency, the risk of someone spoofing your server is very low, and it's usually acceptable to Trust On First Use.
@@ -125,3 +125,7 @@ Please note that both the `PasswordAuthentication` and `PermitRootLogin` keys mi
 
 Make sure to update the value if they already exist, instead of setting the value twice.
 :::
+
+### Additional resources
+
+If you want to tweak your sshd further, [Mozilla's OpenSSH guidelines](https://infosec.mozilla.org/guidelines/openssh) are concise and useful.
