@@ -15,7 +15,7 @@ This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-This means that your laptop/workstation tries to connect to the remote ssh server, which presents it a public key it has never met before. SSH Key fingerprints could be described as the terms & conditions of remote login: nobody has the time for that, and everyone accepts them blindly.
+This means that your laptop/workstation tries to connect to the remote ssh server, which presents it with a public key it has never met before. SSH Key fingerprints could be described as the terms & conditions of remote login: nobody has the time for that, and everyone accepts them blindly.
 
 This is actually not as unreasonsable as not reading the terms: the name of this behaviour is called [TOFU, for "Trust On First Use"](https://en.wikipedia.org/wiki/Trust_on_first_use). It is something secure messengers like Signal or WhatsApp do by default.
 
@@ -40,7 +40,7 @@ You don't need to know much more about asymmetric cryptography theory to underst
 
 When your ssh client tries to connect to your ssh server (i.e. when you type `ssh example.com` in your terminal), the server will present a public key to your client. Your client is going to lookup in its `~/.ssh/known_hosts` file to see if there is a match. If it's the first time it's seeing this host, you're going to get the same prompt as in this page's introduction.
 
-If your client trusts the server identified by the public key, they will negotiate temporary session keys to protect the rest of the communication. If you're interested in learning more about SSH and the client-server dance, you read read [this Hostinger post](https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work).
+If your client trusts the server identified by the public key, they will negotiate temporary session keys to protect the rest of the communication. If you're interested in learning more about SSH and the client-server dance, you read [this Hostinger post](https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work).
 
 ## How to check if the fingerprint is valid
 
@@ -64,7 +64,7 @@ If the fingerprint match, you're good to go.
 
 One important question we haven't answered so far is: what are we really protecting from?
 
-Your main risk is to connecto to a server impersonating your server: a man in the middle attack. If that server managed to spoof yours and you trusted it, you'd end up copying your commands, files, on a remote host that is not yours, giving away your passwords and secrets for free… which is clearly bad.
+Your main risk is to connect to a server impersonating your server: a man in the middle attack. If that server managed to spoof yours and you trusted it, you'd end up copying your commands, files, on a remote host that is not yours, giving away your passwords and secrets for free… which is clearly bad.
 
 It's worth noting that spoofing a server is not a trivial attack. As a self-hoster who just set up their server and who attempt to SSH into it, it's very unlikely that someone will manage to spoof your server right away.
 
