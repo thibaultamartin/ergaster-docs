@@ -161,15 +161,49 @@ ssync_pg_password: !vault |
 
 ### Nextcloud variables
 
-TODO
+Nextcloud doesn't need much pre-configuration to get started. You only need to configure the domain on which it is going to run, and two secrets related to the Nextcloud database: the root password, and the nextcloud user password.
+
+As previously, you can use `openssl rand -base64 27` several times to generate secrets for the following variables:
+
+- `nextcloud_db_root_password`
+- `nextcloud_db_password`
+
+Don't forget to [encrypt them using `ansible-vault`](#encrypting-variables-with-ansible-vault), and the nextcloud section of your `inventory/host_vars/example.com/vars.yml` should look like follows:
+
+```
+nextcloud_domain: cloud.example.com
+nextcloud_db_root_password: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+nextcloud_db_password: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+```
+
+
 
 ### Hedgedoc variables
 
-TODO
+Similarly for hedgedoc, you only need to define the domain, the database password, and the session secret.
 
-### Authentik variables
+You can use `openssl rand -base64 64` several times to generate secrets for the following variables:
 
-TODO
+- `hedgedoc_db_password`
+- `hedgedoc_session_secret`
+
+The session secret which is a fixed secret hedgedoc relies on to sign the session cookies. [As per the doc](https://docs.hedgedoc.org/configuration/), not setting it means it will be generated randomly at restart, which would log off all users. **Make sure the secret is 64 characters long!**
+
+Don't forget to [encrypt the passwords with `ansible-vault`](#encrypting-variables-with-ansible-vault), and the nextcloud section of your `inventory/host_vars/example.com/vars.yml` should look like follows:
+
+```
+hedgedoc_domain: hdoc.example.com
+hedgedoc_db_password: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+hedgedoc_session_secret: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  <encrypted secret>
+```
 
 ## Running the playbook
 
