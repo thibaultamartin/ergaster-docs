@@ -220,3 +220,7 @@ The final command to run is:
 ```sh
 $ ansible-playbook services.yml -i inventory/production.ini -K --ask-vault-password
 ```
+
+:::tip
+Don't forget to [set up the DNS records](/deployment/get-ready-to-deploy#set-up-the-dns-records) before running the command.
+:::
