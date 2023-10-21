@@ -41,3 +41,38 @@ Ansible playbooks are nothing but yaml (or ini) files that can be edited by even
 :::tip
 Thib is using VSCode to edit his playbooks. It supports the [Ansible plugin](https://marketplace.visualstudio.com/items?itemName=redhat.ansible), which comes with a linter and useful error messages.
 :::
+
+## Install openssl
+
+`openssl` can be useful to generate secrets, but other utilities like `pwgen` can do the work as well.
+
+A typical command to generate a 27 characters long password with openssl would be:
+
+```
+$ openssl rand -base64 27
+```
+
+## Set up the DNS Records
+
+The services that are publicly reachable consist of:
+
+- A Synapse (Matrix) instance
+- A sliding sync proxy for Matrix
+- A Nextcloud instance
+- A hedgedoc instance
+
+On the monitoring end, the only service reachable publicly (protected by a password) is Grafana.
+
+You need to make sure those services have either an A, AAAA or CNAME record that points to the right server.
+In my case, all my services are hosted on the same server so my records look like the following
+
+|Record type|(sub)domain|Points to|
+|-|-|-|
+| A | example.com | IPv4 of my services server |
+| AAAA | example.com | IPv6 of my services server |
+| CNAME | matrix.example.com | example.com |
+| CNAME | sliding.matrix.example.com | example.com |
+| CNAME | cloud.example.com | example.com |
+| CNAME | hdoc.example.com | example.com |
+
+The key benefits of this approach is that if I wanted to switch providers for my server, I would only need to update my `A` and `AAAA` records. The downsides of this approach is mainly that to reach a service, the client needs to perform two DNS queries (unless your DNS provides does flattening, like CloudFlare).
