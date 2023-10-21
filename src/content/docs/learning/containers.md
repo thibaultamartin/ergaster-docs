@@ -1,6 +1,11 @@
 ---
 title: Containers
 description: The shipping revolution applied to software
+sidebar:
+    order: 20
+    badge:
+        text: WIP
+        variant: caution
 ---
 
 :::caution

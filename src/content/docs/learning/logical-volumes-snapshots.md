@@ -1,6 +1,11 @@
 ---
-title: Logical Volumes and Snapshots
+title: Logical Volumes Snapshots
 description: Getting no-downtime backups without high-availability
+sidebar:
+    order: 110
+    badge:
+        text: WIP
+        variant: caution
 ---
 
 :::caution

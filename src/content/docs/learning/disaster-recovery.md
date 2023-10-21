@@ -1,6 +1,11 @@
 ---
 title: Disaster Recovery
 description: Things will go sideways, better get prepared ahead of time
+sidebar:
+    order: 100
+    badge:
+        text: WIP
+        variant: caution
 ---
 
 :::caution

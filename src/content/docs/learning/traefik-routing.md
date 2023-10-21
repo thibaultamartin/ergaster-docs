@@ -1,6 +1,11 @@
 ---
 title: Traefik Routing Magic
 description: How Traefik knows where to route incoming traffic
+sidebar:
+    order: 40
+    badge:
+        text: WIP
+        variant: caution
 ---
 
 :::caution

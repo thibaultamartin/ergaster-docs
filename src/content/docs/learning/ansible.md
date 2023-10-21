@@ -1,6 +1,11 @@
 ---
 title: Ansible
 description: Deploy services on servers from your laptop, in a single command
+sidebar:
+    order: 70
+    badge:
+        text: WIP
+        variant: caution
 ---
 
 :::caution
