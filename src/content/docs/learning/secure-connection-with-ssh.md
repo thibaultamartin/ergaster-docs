@@ -1,8 +1,6 @@
 ---
 title: Secure connection with SSH
 description: Making sure you connect to the right host
-sidebar:
-    order: 10
 ---
 
 During your first attempt to ssh into a server you just set-up, you will certainly be greeted by the following prompt:

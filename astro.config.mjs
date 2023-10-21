@@ -41,7 +41,92 @@ export default defineConfig({
 				},
 				{
 					label: 'Learning the concepts',
-					autogenerate: { directory: 'learning' },
+					items: [
+						{
+							label: "Secure connection with SSH",
+							link: "/learning/secure-connection-with-ssh",
+						},
+						{
+							label: "Containers",
+							link: "/learning/containers",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "Certs and reverse proxies",
+							link: "/learning/certificates-and-reverse-proxies",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "Traefik routing magic",
+							link: "/learning/traefik-routing",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "firewalld",
+							link: "/learning/firewalld",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "systemd",
+							link: "/learning/systemd",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "Ansible",
+							link: "/learning/ansible",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "Wireguard",
+							link: "/learning/wireguard",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "Monitoring and alerting",
+							link: "/learning/monitoring-and-alerting",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "Disaster Recovery",
+							link: "/learning/disaster-recovery",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+						{
+							label: "Logical volumes snapshots",
+							link: "/learning/logical-volumes-snapshots",
+							badge: {
+								text: "WIP",
+								variant: "caution",
+							},
+						},
+					],
 				},
 			],
 		}),
