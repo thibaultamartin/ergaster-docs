@@ -181,9 +181,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/starlight@npm:^0.11.1":
-  version: 0.11.1
-  resolution: "@astrojs/starlight@npm:0.11.1"
+"@astrojs/starlight@npm:^0.11.2":
+  version: 0.11.2
+  resolution: "@astrojs/starlight@npm:0.11.2"
   dependencies:
     "@astrojs/mdx": ^1.1.0
     "@astrojs/sitemap": ^3.0.0
@@ -202,7 +202,7 @@ __metadata:
     vfile: ^5.3.7
   peerDependencies:
     astro: ^3.2.0
-  checksum: b49ca30702f2d204a59f0209f35cdc1d428845c8f9e6e118a3afccf562eccc22b6680132d1068643fc00ee23172fc80b34d780ff1ff523141716cd8ddaac941c
+  checksum: 2bb8b21d44f07853d06cb866dee21dbfd44e8ce19fba910f17e6b5057ee559653e617a62e4a43e6e19dc03a300ffbff2298e5f989f23de80c8418464d92d91a0
   languageName: node
   linkType: hard
 
@@ -5379,7 +5379,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@astrojs/check": ^0.2.1
-    "@astrojs/starlight": ^0.11.1
+    "@astrojs/starlight": ^0.11.2
     astro: ^3.4.0
     sharp: ^0.32.5
     typescript: ^5.2.2
