@@ -113,9 +113,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-remark@npm:3.4.0":
-  version: 3.4.0
-  resolution: "@astrojs/markdown-remark@npm:3.4.0"
+"@astrojs/markdown-remark@npm:3.5.0":
+  version: 3.5.0
+  resolution: "@astrojs/markdown-remark@npm:3.5.0"
   dependencies:
     "@astrojs/prism": ^3.0.0
     github-slugger: ^2.0.0
@@ -133,7 +133,7 @@ __metadata:
     vfile: ^5.3.7
   peerDependencies:
     astro: ^3.0.0
-  checksum: 5be66448d8929132c5bf2545767200404258d7ffe754488e0913acd3a1ce3865fe41e8a51172c7a07847f4e0cceabce3e59fa6bfe51b26dd6e4a55027a6a919f
+  checksum: 991e41551fdaf780bcd9d89274292c27974b0e875d03bddfa531de00d0e54e1a7bea1b1b7ed029f03cfd37308734edb5ea31de6bf31bf24e0257e1c995d6f04a
   languageName: node
   linkType: hard
 
@@ -1448,13 +1448,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^3.5.3":
-  version: 3.5.3
-  resolution: "astro@npm:3.5.3"
+"astro@npm:^3.5.5":
+  version: 3.5.5
+  resolution: "astro@npm:3.5.5"
   dependencies:
     "@astrojs/compiler": ^2.3.0
     "@astrojs/internal-helpers": 0.2.1
-    "@astrojs/markdown-remark": 3.4.0
+    "@astrojs/markdown-remark": 3.5.0
     "@astrojs/telemetry": 3.0.4
     "@babel/core": ^7.22.10
     "@babel/generator": ^7.22.10
@@ -1516,7 +1516,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 065e72c6c18d4dc2c315ca872d9ff9ebbf9e059521d350026bf2571116cb36856b41bcb7f16df7ff94e24513d740d33ab10944d36c70276e73d0862af88fce0d
+  checksum: bac5e6226637eb9757c0127941cde32169ac39d5f22ade869ce86c663b114307431b996c9ffbd28469ba55157d316bdec4dffaa257db087fde71813f2412fc3d
   languageName: node
   linkType: hard
 
@@ -5389,7 +5389,7 @@ __metadata:
   dependencies:
     "@astrojs/check": ^0.3.1
     "@astrojs/starlight": ^0.12.1
-    astro: ^3.5.3
+    astro: ^3.5.5
     sharp: ^0.32.5
     typescript: ^5.2.2
   languageName: unknown
