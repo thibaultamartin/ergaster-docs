@@ -1481,9 +1481,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "astro@npm:4.4.0"
+"astro@npm:^4.4.10":
+  version: 4.4.10
+  resolution: "astro@npm:4.4.10"
   dependencies:
     "@astrojs/compiler": ^2.5.3
     "@astrojs/internal-helpers": 0.2.1
@@ -1537,7 +1537,6 @@ __metadata:
     rehype: ^13.0.1
     resolve: ^1.22.4
     semver: ^7.5.4
-    server-destroy: ^1.0.1
     sharp: ^0.32.6
     shikiji: ^0.9.19
     shikiji-core: ^0.9.19
@@ -1546,7 +1545,7 @@ __metadata:
     tsconfck: ^3.0.0
     unist-util-visit: ^5.0.0
     vfile: ^6.0.1
-    vite: ^5.1.2
+    vite: ^5.1.4
     vitefu: ^0.2.5
     which-pm: ^2.1.1
     yargs-parser: ^21.1.1
@@ -1556,7 +1555,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: ac7ace8aec889f19aa2d329d2ac50a2c585f00b9d09bc1a465277505c81bdc365af31f99ccdfd2b8b57402590b5525d0cac85952fd98621eba648e74fe978068
+  checksum: 264de00b54023d035975b58fcab098515ebabc51d1ee17d20a110b74c99f9e7a55b587871bf4c5b7198751c041d8645ffec453f0f3bbfbee066e1377691dc519
   languageName: node
   linkType: hard
 
@@ -5959,7 +5958,7 @@ __metadata:
   dependencies:
     "@astrojs/check": ^0.3.1
     "@astrojs/starlight": ^0.12.1
-    astro: ^4.4.0
+    astro: ^4.4.10
     sharp: ^0.32.5
     typescript: ^5.3.2
   languageName: unknown
@@ -6031,13 +6030,6 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 12d8ad952fa353b0995bf180cdac205a4068b759a140e5d3c608317098b3575ac2f1e09182206bf2eb26120e1c0ed8fb92c48c592f6099680de56bb071423ca3
-  languageName: node
-  linkType: hard
-
-"server-destroy@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "server-destroy@npm:1.0.1"
-  checksum: cbc19d4f92d25a0a34430c6a09faccbea77d1a69563560eefe883feb67c14c3fb3a1c5af1affae0e82d537886ea0f91d317e39e46b5d6425de3acf57a3ab13e3
   languageName: node
   linkType: hard
 
@@ -6858,9 +6850,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.1.2":
-  version: 5.1.3
-  resolution: "vite@npm:5.1.3"
+"vite@npm:^5.1.4":
+  version: 5.1.4
+  resolution: "vite@npm:5.1.4"
   dependencies:
     esbuild: ^0.19.3
     fsevents: ~2.3.3
@@ -6894,7 +6886,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 827d67c5b951f0eab9d0293f30a6d60274da914d7548f4220021a596873c8a8891fe8d9418fac52486b8808a57cab8ee61ffe048520cce11b680eae4ed72bffa
+  checksum: fb8b944c69fd738b412ad10471f01db01ed59b5d7fdf182b836b420b221a8bd5ada74d225a87aaa80cf8d2b693cc4a89ab7c291254a8b4e6faefd93843ebb9d3
   languageName: node
   linkType: hard
 
