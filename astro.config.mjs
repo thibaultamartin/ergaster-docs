@@ -25,6 +25,8 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/thibaultamartin',
 				mastodon: 'https://mamot.fr/@thibaultamartin',
+				linkedin: 'https://www.linkedin.com/in/ergaster/',
+				blueSky: 'https://bsky.app/profile/thib.ergaster.org'
 			},
 			editLink: {
 				baseUrl: "https://github.com/thibaultamartin/ergaster-docs/edit/main/",
