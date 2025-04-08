@@ -22,12 +22,12 @@ export default defineConfig({
 				dark: './src/assets/logo-dark.svg'
 			},
 			favicon: './src/assets/logo.svg',
-			social: {
-				github: 'https://github.com/thibaultamartin',
-				mastodon: 'https://mamot.fr/@thibaultamartin',
-				linkedin: 'https://www.linkedin.com/in/ergaster/',
-				blueSky: 'https://bsky.app/profile/thib.ergaster.org'
-			},
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/thibaultamartin' },
+				{ icon: 'mastodon', label: 'Mastodon', href: 'https://mamot.fr/@thibaultamartin' },
+				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/ergaster/' },
+				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/thib.ergaster.org' }
+			],
 			editLink: {
 				baseUrl: "https://github.com/thibaultamartin/ergaster-docs/edit/main/",
 			},
